@@ -32,5 +32,5 @@ $(document).on('submit', '.delete-form', function (event) {
 });
 
 function reloadPage () {
-	$('#all-burgers').load('/burgers');
+	$('index').load('/burgers');
 };

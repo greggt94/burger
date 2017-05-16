@@ -8,17 +8,30 @@
   <button type="submit">Add Burger</button>
 </form>
 
-<div class="burger-list">
-  <hr>
-  <label>Burgers</label>
-  <ul>
-    {{#each burgers}}
-    {{#unless this.devoured}}
-      <li>
-        {{burger_name}}
-      </li>
-    {{/unless}}
-    {{/each}}
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 burger-list">
+      <hr>
+      <label>Burgers</label>
+      <ul>
+        {{#each burgers}}
+        {{#unless this.devoured}}
+          <li>
+            <label>{{burger_name}}</label>
+            <form class="update-form" action="/burgers">
+            <input type="hidden" name="devoured" value="1">
+            <button type="submit">Devour It!</button>
+            </form>
+          </li>
+        {{/unless}}
+        {{/each}}
+    </ul>
+    </div>
+
+    <div class="col-xs-6 devoured-burgers">
+      <hr>
+      <label>Devoured Burgers</label>
+    </div>
+  </div>
 </div>
 
