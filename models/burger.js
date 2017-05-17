@@ -7,8 +7,8 @@ var burger = {
 	insertOne: function (burger, callback) {
 		orm.insertOne("burgers", burger, callback);
 	},
-	updateOne: function (condition, burger, callback) {
-		orm.updateOne("burgers", condition, burger, callback);
+	updateOne: function (burger, condition, callback) {
+		orm.updateOne("burgers", burger, condition, callback);
 	}
 };
 

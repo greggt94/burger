@@ -6,7 +6,7 @@ var router = express.Router();
 router.get("/", function (req, res) {
 	burgerModel.selectAll(function (data) {
 		if(!req.xhr) {
-			res.render('index', {burgers: data});
+			res.render('index', { burgers: data });
 		} else {
 			res.render('layouts/main', { burgers: data, layout: false });
 		}
@@ -14,19 +14,19 @@ router.get("/", function (req, res) {
 });
 
 router.post("/", function (req, res) {
-	console.log(req.body.burger_name, req.body.devoured);
 	burgerModel.insertOne({
-		burger_name: req.body.burger_name,
-		devoured: req.body.devoured
+		id: req.body.id,
+		burger_name: req.body.name,
+		devoured: false
 	}, function (data) {
 		res.json(data);
 	});
 });
 
-router.put("/", function (req, res) {
+router.put("/:id", function (req, res) {
 	burgerModel.updateOne(
 		{ id: req.params.id },
-		{ devoured: req.body.devoured }, 
+		{ devoured: req.body.devoured },
 		function (data) {
 		res.json(data);
 	});

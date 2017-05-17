@@ -13,7 +13,7 @@ var orm = {
 			callback(result);
 		});
 	},
-	updateOne: function (tableName, condition, obj, callback) {
+	updateOne: function (tableName, obj, condition, callback) {
 		connection.query("UPDATE ?? SET ? WHERE ?", [tableName, obj, condition], function (err, result) {
 			if (err) throw err;
 			callback(result);
